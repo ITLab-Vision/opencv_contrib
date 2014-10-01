@@ -1,6 +1,6 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
 
 int sepia(InputArray src, OutputArray dst)
 {
@@ -22,3 +22,5 @@ int sepia(InputArray src, OutputArray dst)
     cvtColor(hsvImg, dst, CV_HSV2BGR);
     return 0;
 }
+
+}}

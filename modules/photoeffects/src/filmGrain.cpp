@@ -1,6 +1,7 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
+
 int filmGrain(InputArray src, OutputArray dst, int grainValue, RNG& rng)
 {
     CV_Assert(!src.empty());
@@ -19,3 +20,5 @@ int filmGrain(InputArray src, OutputArray dst, int grainValue, RNG& rng)
     dstMat=image+noise;
     return 0;
 }
+
+}}

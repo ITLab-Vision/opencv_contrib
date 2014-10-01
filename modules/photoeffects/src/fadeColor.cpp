@@ -1,6 +1,6 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
 
 class FadeColorInvoker
 {
@@ -100,3 +100,5 @@ int fadeColor(InputArray src, OutputArray dst,
     dstMat.copyTo(dst);
     return 0;
 }
+
+}}

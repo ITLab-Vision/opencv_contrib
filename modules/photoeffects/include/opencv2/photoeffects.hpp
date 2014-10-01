@@ -1,6 +1,12 @@
 #pragma once
 
+#ifndef _OPENCV_PHOTOEFFECTS_HPP_
+#define _OPENCV_PHOTOEFFECTS_HPP_
+#ifdef __cplusplus
+
 #include <opencv2/core/core.hpp>
+
+namespace cv { namespace photoeffects {
 
 int sepia(cv::InputArray src, cv::OutputArray dst);
 
@@ -24,3 +30,8 @@ int warmify(cv::InputArray src, cv::OutputArray dst, uchar delta = 30);
 
 int matte(cv::InputArray src, cv::OutputArray dst, cv::Point firstPoint, cv::Point secondPoint,
           float sigmaX, float sigmaY, cv::Size ksize=cv::Size(0, 0));
+
+}}
+
+#endif
+#endif

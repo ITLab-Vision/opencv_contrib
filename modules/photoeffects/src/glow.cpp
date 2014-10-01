@@ -1,6 +1,6 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
 
 namespace
 {
@@ -65,3 +65,5 @@ int glow(InputArray src, OutputArray dst, int radius, float intensity)
 
     return 0;
 }
+
+}}

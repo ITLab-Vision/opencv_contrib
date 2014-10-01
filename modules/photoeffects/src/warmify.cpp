@@ -1,6 +1,6 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
 
 int warmify(cv::InputArray src, cv::OutputArray dst, uchar delta)
 {
@@ -13,3 +13,5 @@ int warmify(cv::InputArray src, cv::OutputArray dst, uchar delta)
     imgDst = imgSrc + Scalar(0, delta, delta);
     return 0;
 }
+
+}}

@@ -1,6 +1,6 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
 
 int antique(InputArray src, OutputArray dst, InputArray texture, float alpha)
 {
@@ -18,3 +18,5 @@ int antique(InputArray src, OutputArray dst, InputArray texture, float alpha)
     addWeighted(textureImg, alpha , newSrc, beta, 0.0f, dst);
     return 0;
 }
+
+}}

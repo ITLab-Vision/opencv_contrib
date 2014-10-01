@@ -9,4 +9,4 @@
 
 #include <cmath>
 #include <vector>
-#endif /* __OPENCV_XOBJDETECT_PRECOMP_HPP__ */
+#endif

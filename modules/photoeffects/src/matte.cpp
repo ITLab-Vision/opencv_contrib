@@ -1,6 +1,6 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
 
 namespace
 {
@@ -57,3 +57,5 @@ int matte(InputArray src, OutputArray dst, Point firstPoint, Point secondPoint, 
     merge(ch_img,dst);
     return 0;
 }
+
+}}

@@ -1,6 +1,6 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
 
 int boostColor(cv::InputArray src, cv::OutputArray dst, float intensity)
 {
@@ -27,3 +27,5 @@ int boostColor(cv::InputArray src, cv::OutputArray dst, float intensity)
     dst.getMat().convertTo(dst, srcImg.type());
     return 0;
 }
+
+}}

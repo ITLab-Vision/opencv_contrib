@@ -1,5 +1,6 @@
 #include "precomp.hpp"
-using namespace cv;
+
+namespace cv { namespace photoeffects {
 
 class VignetteInvoker
 {
@@ -62,3 +63,5 @@ int vignette(InputArray src, OutputArray dst, Size rect)
 
     return 0;
 }
+
+}}

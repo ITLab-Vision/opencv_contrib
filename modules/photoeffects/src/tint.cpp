@@ -1,6 +1,6 @@
 #include "precomp.hpp"
 
-using namespace cv;
+namespace cv { namespace photoeffects {
 
 int tint(InputArray src, OutputArray dst, const Vec3b &colorTint, float density)
 {
@@ -13,4 +13,6 @@ int tint(InputArray src, OutputArray dst, const Vec3b &colorTint, float density)
 
     outputImage = matColTint * density + image * (1 - density);
     return 0;
+}
+
 }
