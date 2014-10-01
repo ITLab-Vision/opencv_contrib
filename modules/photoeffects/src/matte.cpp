@@ -1,8 +1,6 @@
-#include "photoeffects.hpp"
-#include <vector>
+#include "precomp.hpp"
 
 using namespace cv;
-using namespace std;
 
 namespace
 {

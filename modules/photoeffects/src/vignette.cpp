@@ -1,7 +1,4 @@
-#include "photoeffects.hpp"
-#include <opencv2/core/core.hpp>
-#include <opencv2/core/internal.hpp>
-
+#include "precomp.hpp"
 using namespace cv;
 
 class VignetteInvoker

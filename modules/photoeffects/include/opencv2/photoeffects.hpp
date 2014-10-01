@@ -1,12 +1,10 @@
 #pragma once
 
 #include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
 
 int sepia(cv::InputArray src, cv::OutputArray dst);
 
-int filmGrain(cv::InputArray src, cv::OutputArray dst, int grainValue = 8, cv::RNG& rng=cv::theRNG());
+int filmGrain(cv::InputArray src, cv::OutputArray dst, int grainValue = 8, cv::RNG& rng = cv::theRNG());
 
 int fadeColor(cv::InputArray src, cv::OutputArray dst,cv::Point startPoint,cv::Point endPoint);
 
