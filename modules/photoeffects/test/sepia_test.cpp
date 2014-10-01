@@ -1,11 +1,8 @@
-#include "photoeffects.hpp"
-#include "test_utils.hpp"
-#include <gtest/gtest.h>
+#include "precomp.hpp"
 
 using namespace cv;
 
-
-TEST(photoeffects, SepiaInvalidImageFormat)
+TEST(photoeffects_sepia, invalid_image_format)
 {
     Mat src(10, 10, CV_8UC3);
     Mat dst;
@@ -14,7 +11,7 @@ TEST(photoeffects, SepiaInvalidImageFormat)
 }
 
 
-TEST(photoeffects, SepiaTest)
+TEST(photoeffects_sepia, test)
 {
     Mat src(10, 10, CV_8UC1, Scalar(0)), dst, hsvDst;
     vector<Mat> channels(3);
@@ -30,7 +27,7 @@ TEST(photoeffects, SepiaTest)
     EXPECT_GE(src.at<uchar>(0, 0) + 20 + 1, channels[2].at<uchar>(0, 0));
 }
 
-TEST(photoeffects, SepiaRegressionTest)
+TEST(photoeffects_sepia, regression)
 {
     string input = "./testdata/sepia_test.png";
     string expectedOutput = "./testdata/sepia_test_result.png";

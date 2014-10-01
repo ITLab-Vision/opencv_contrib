@@ -1,8 +1,10 @@
-#pragma once
+#ifndef __OPENCV_PHOTOEFFECTS_PRECOMP_HPP__
+#define __OPENCV_PHOTOEFFECTS_PRECOMP_HPP__
 
-#include <gtest/gtest.h>
+#include <opencv2/photoeffects.hpp>
 #include <opencv2/core/core.hpp>
 
+#include <gtest/gtest.h>
 
 int suppressAssertionMessage(int, const char *, const char *,
                             const char *, int, void *);
@@ -25,3 +27,5 @@ int suppressAssertionMessage(int, const char *, const char *,
     cv::redirectError(0);\
     EXPECT_EQ((int)(expectedErrorCode), errorCode);\
 }
+
+#endif

@@ -1,17 +1,15 @@
-#include "photoeffects.hpp"
-#include "test_utils.hpp"
-#include <gtest/gtest.h>
+#include "precomp.hpp"
 
 using namespace cv;
 
-TEST(photoeffects, GlowTest) {
+TEST(photoeffects_glow, test) {
     Mat image(10, 10, CV_32FC3), dst;
     image = Mat::zeros(10, 10, CV_32FC3);
 
     EXPECT_EQ(0, glow(image, dst, 1.0f, 0.5f));
 }
 
-TEST(photoeffects, GlowTestRegression) {
+TEST(photoeffects_glow, regression) {
     string input = "./testdata/glow_test.png";
     string expectedOutput = "./testdata/glow_test_result.png";
 
@@ -32,20 +30,20 @@ TEST(photoeffects, GlowTestRegression) {
     EXPECT_EQ(0, countNonZero(mask));
 }
 
-TEST(photoeffects, GlowTestBadRadius) {
+TEST(photoeffects_glow, bad_radius) {
     Mat image(10, 10, CV_32FC3), dst;
 
     EXPECT_ERROR(CV_StsAssert, glow(image, dst, -1, 0.5f));
 }
 
-TEST(photoeffects, GlowTestBadIntensity) {
+TEST(photoeffects_glow, bad_intensity) {
     Mat image(10, 10, CV_32FC3), dst;
 
     EXPECT_ERROR(CV_StsAssert, glow(image, dst, 5.0f, 5.0f));
     EXPECT_ERROR(CV_StsAssert, glow(image, dst, 5.0f, -5.0f));
 }
 
-TEST(photoeffects, GlowTestBadImage) {
+TEST(photoeffects_glow, bad_image) {
     Mat image(10, 10, CV_8UC1), dst;
 
     EXPECT_ERROR(CV_StsAssert, glow(image, dst, 5.0f, 0.5f));

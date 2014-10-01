@@ -1,17 +1,16 @@
-#include "photoeffects.hpp"
-#include "test_utils.hpp"
-#include <gtest/gtest.h>
+#include "precomp.hpp"
 
 using namespace cv;
 
-TEST(photoeffects, FadeColorInvalidImageFormat)
+TEST(photoeffects_fadeColor, invalid_image_format)
 {
     Mat src(10, 20, CV_8UC2);
     Mat dst;
 
     EXPECT_ERROR(CV_StsAssert, fadeColor(src, dst, Point(5, 5), Point(5, 10)));
 }
-TEST(photoeffects, FadeColorInvalidArgument)
+
+TEST(photoeffects_fadeColor, invalid_argument)
 {
     Mat src(10, 20, CV_8UC1);
     Mat dst;
@@ -20,14 +19,16 @@ TEST(photoeffects, FadeColorInvalidArgument)
     EXPECT_ERROR(CV_StsAssert, fadeColor(src, dst, Point(5,5), Point(5,-10)));
     EXPECT_ERROR(CV_StsAssert, fadeColor(src, dst, Point(5,5), Point(5,5)));
 }
-TEST(photoeffects, FadeColorTest) {
+
+TEST(photoeffects_fadeColor, test) {
     Mat imageWithOneChannel(100, 200, CV_8UC1);
     Mat imageWithThreeChannel(100, 200, CV_8UC3);
     Mat dst;
     EXPECT_EQ(0, fadeColor(imageWithOneChannel, dst, Point(5,5), Point(5,8)));
     EXPECT_EQ(0, fadeColor(imageWithThreeChannel, dst, Point(5,5), Point(5,8)));
 }
-TEST(photoeffects, FadeColorRegressionTest)
+
+TEST(photoeffects_fadeColor, regression)
 {
     string input ="./testdata/fadeColor_test.png";
     string expectedOutput ="./testdata/fadeColor_result.png";

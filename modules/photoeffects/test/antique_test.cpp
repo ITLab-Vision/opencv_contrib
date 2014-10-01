@@ -1,10 +1,8 @@
-#include <gtest/gtest.h>
-#include "test_utils.hpp"
-#include "photoeffects.hpp"
+#include "precomp.hpp"
 
 using namespace cv;
 
-TEST(photoeffects, AntiqueTest)
+TEST(photoeffects_antique, test)
 {
     Mat srcUCThreeChannels(10, 10, CV_8UC3);
     srcUCThreeChannels = Mat::zeros(10, 10, CV_8UC3);
@@ -19,7 +17,7 @@ TEST(photoeffects, AntiqueTest)
     EXPECT_EQ(0, antique(srcFCThreeChannels, dst, textureFCThreeChannels, 0.5f));
 }
 
-TEST(photoeffects, AntiqueInvalidImageFormat)
+TEST(photoeffects_antique, invalid_image_format)
 {
     Mat src(10, 10, CV_8UC1);
     Mat textureNormal(10, 10, CV_8UC3);
@@ -31,7 +29,7 @@ TEST(photoeffects, AntiqueInvalidImageFormat)
     EXPECT_ERROR(CV_StsAssert, antique(srcNormal, dst, texture, 0.4f));
 }
 
-TEST(photoeffects, AntiqueRegressionTest)
+TEST(photoeffects_antique, regression)
 {
     string input = "./testdata/antique_test.png";
     string texture = "./testdata/antique_texture_test.png";

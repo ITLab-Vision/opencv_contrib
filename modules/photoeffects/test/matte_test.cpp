@@ -1,10 +1,8 @@
-#include "photoeffects.hpp"
-#include "test_utils.hpp"
-#include <gtest/gtest.h>
+#include "precomp.hpp"
 
 using namespace cv;
 
-TEST(photoeffects, MatteTest)
+TEST(photoeffects_matte, test)
 {
     Mat srcUCThreeChannels(10, 10, CV_8UC3);
     srcUCThreeChannels = Mat::zeros(10, 10, CV_8UC3);
@@ -16,7 +14,7 @@ TEST(photoeffects, MatteTest)
     EXPECT_EQ(0, matte(srcFCThreeChannels, srcFCThreeChannels, fisrtpoint, secondpoint, 1.0f, 1.0f));
 }
 
-TEST(photoeffects, MatteInvalidImageFormat)
+TEST(photoeffects_matte, invalid_image_format)
 {
     Mat src(10, 10, CV_8UC1);
     Mat dst;
@@ -25,7 +23,7 @@ TEST(photoeffects, MatteInvalidImageFormat)
     EXPECT_ERROR(CV_StsAssert, matte(src, dst, firstpoint, secondpoint, 1.0f, 1.0f));
 }
 
-TEST(photoeffects, MatteRegressionTest)
+TEST(photoeffects_matte, regression)
 {
     string input = "./testdata/matte_test.png";
     string expectedOutput = "./testdata/matte_test_result.png";

@@ -1,10 +1,8 @@
-#include "photoeffects.hpp"
-#include "test_utils.hpp"
-#include <gtest/gtest.h>
+#include "precomp.hpp"
 
 using namespace cv;
 
-TEST(photoeffects, VignetteInvalidArguments)
+TEST(photoeffects_vignette, invalid_arguments)
 {
     Mat image(100, 100, CV_8UC1);
     Mat dst;
@@ -15,7 +13,7 @@ TEST(photoeffects, VignetteInvalidArguments)
     EXPECT_ERROR(CV_StsAssert, vignette(image, dst, rectangle));
 }
 
-TEST(photoeffects, VignetteTest)
+TEST(photoeffects_vignette, test)
 {
     Mat image(100, 100, CV_8UC3);
     Mat dst;
@@ -26,7 +24,7 @@ TEST(photoeffects, VignetteTest)
     EXPECT_EQ(0, vignette(image, dst, rectangle));
 }
 
-TEST(photoeffects, VignetteRegressionTest)
+TEST(photoeffects_vignette, regression)
 {
     string input = "./testdata/vignette_test.png";
     string expectedOutput = "./testdata/vignette_test_result.png";

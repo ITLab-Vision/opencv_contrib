@@ -1,23 +1,21 @@
-#include "photoeffects.hpp"
-#include "test_utils.hpp"
-#include <gtest/gtest.h>
+#include "precomp.hpp"
 
 using namespace cv;
 
-TEST(photoeffects, TintTest) {
+TEST(photoeffects_tint, test) {
     Mat src(10, 10, CV_8UC3), dst;
     Vec3b color;
     EXPECT_EQ(0, tint(src, dst, color, 0.0f));
 }
 
-TEST(photoeffects, TintWrongImage)
+TEST(photoeffects_tint, wrong_image)
 {
     Mat src(10, 10, CV_8UC2), dst;
     Vec3b color;
     EXPECT_ERROR(CV_StsAssert, tint(src, dst, color, 0.5f));
 }
 
-TEST(photoeffects, TintWrongDensity)
+TEST(photoeffects_tint, wrong_density)
 {
     Mat src(10, 10, CV_8UC3), dst;
     Vec3b color;
@@ -26,7 +24,7 @@ TEST(photoeffects, TintWrongDensity)
     EXPECT_ERROR(CV_StsAssert, tint(src, dst, color, -1.0f));
 }
 
-TEST(photoeffects, TintRegressionTest)
+TEST(photoeffects_tint, regression)
 {
     string input = "./testdata/tint_test.png";
     string expectedOutput = "./testdata/tint_test_result.png";

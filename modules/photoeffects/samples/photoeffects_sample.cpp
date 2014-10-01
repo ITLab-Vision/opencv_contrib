@@ -1,4 +1,4 @@
-#include "photoeffects.hpp"
+#include <opencv2/photoeffects.hpp>
 #include <iostream>
 
 int main(int argc, char** argv)

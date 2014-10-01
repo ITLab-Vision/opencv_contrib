@@ -1,10 +1,8 @@
-#include "photoeffects.hpp"
-#include "test_utils.hpp"
-#include <gtest/gtest.h>
+#include "precomp.hpp"
 
 using namespace cv;
 
-TEST(photoeffects, EdgeBlurTest)
+TEST(photoeffects_edgeBlur, test)
 {
     Mat src(50, 50, CV_8UC3), dst;
     src = Mat::zeros(50, 50, CV_8UC3);
@@ -12,7 +10,7 @@ TEST(photoeffects, EdgeBlurTest)
     EXPECT_EQ(0, edgeBlur(src, dst, 1, 1));
 }
 
-TEST(photoeffects, EdgeBlurWrongImage)
+TEST(photoeffects_edgeBlur, wrong_image)
 {
     Mat src1(50, 50, CV_8UC1), src2, dst;
 
@@ -20,7 +18,7 @@ TEST(photoeffects, EdgeBlurWrongImage)
     EXPECT_ERROR(CV_StsAssert, edgeBlur(src2, dst, 1, 1));
 }
 
-TEST(photoeffects, EdgeBlurWrongIndent)
+TEST(photoeffects_edgeBlur, wrong_indent)
 {
     Mat src(50, 50, CV_8UC3), dst;
 
@@ -30,7 +28,7 @@ TEST(photoeffects, EdgeBlurWrongIndent)
     EXPECT_ERROR(CV_StsAssert, edgeBlur(src, dst, 0, 100));
 }
 
-TEST(photoeffects, EdgeBlurRegressionTest)
+TEST(photoeffects_edgeBlur, regression)
 {
     string input = "./testdata/edgeBlur_test.png";
     string expectedOutput = "./testdata/edgeBlur_test_result.png";

@@ -1,10 +1,8 @@
-#include "photoeffects.hpp"
-#include "test_utils.hpp"
-#include <gtest/gtest.h>
+#include "precomp.hpp"
 
 using namespace cv;
 
-TEST(photoeffects, WarmifyInvalidImageFormat)
+TEST(photoeffects_warmify, invalid_image_format)
 {
     Mat image(100, 100, CV_8UC1);
     Mat dst;
@@ -12,7 +10,7 @@ TEST(photoeffects, WarmifyInvalidImageFormat)
     EXPECT_ERROR(CV_StsAssert, warmify(image, dst, 30));
 }
 
-TEST(photoeffects, WamifyTest)
+TEST(photoeffects_warmify, test)
 {
     Mat image(100, 100, CV_8UC3);
     Mat dst;
@@ -33,7 +31,7 @@ TEST(photoeffects, WamifyTest)
     }
 }
 
-TEST(photoeffects, WarmifyRegressionTest)
+TEST(photoeffects_warmify, regression)
 {
     string input = "./testdata/warmify_test.png";
     string expectedOutput = "./testdata/warmify_test_result.png";
