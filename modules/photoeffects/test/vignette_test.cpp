@@ -26,8 +26,8 @@ TEST(photoeffects_vignette, test)
 
 TEST(photoeffects_vignette, regression)
 {
-    string input = "./testdata/vignette_test.png";
-    string expectedOutput = "./testdata/vignette_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "testdata/vignette_test.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "testdata/vignette_test_result.png";
 
     Mat image, dst, rightDst;
     image = imread(input, CV_LOAD_IMAGE_COLOR);
