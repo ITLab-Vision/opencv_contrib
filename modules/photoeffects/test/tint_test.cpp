@@ -1,6 +1,9 @@
 #include "precomp.hpp"
 
 using namespace cv;
+using namespace cv::photoeffects;
+
+using namespace std;
 
 TEST(photoeffects_tint, test) {
     Mat src(10, 10, CV_8UC3), dst;

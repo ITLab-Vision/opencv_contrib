@@ -1,6 +1,11 @@
 #include "precomp.hpp"
+#include <opencv2/imgproc.hpp>
+
 
 using namespace cv;
+using namespace cv::photoeffects;
+
+using namespace std;
 
 TEST(photoeffects_sepia, invalid_image_format)
 {
@@ -17,7 +22,7 @@ TEST(photoeffects_sepia, test)
     vector<Mat> channels(3);
 
     EXPECT_EQ(0, sepia(src, dst));
-    cvtColor(dst, hsvDst, CV_BGR2HSV);
+    cvtColor(dst, hsvDst, COLOR_BGR2HSV);
     split(hsvDst, channels);
     EXPECT_LE(19 - 1, channels[0].at<uchar>(0, 0)); // hue = 19
     EXPECT_GE(19 + 1, channels[0].at<uchar>(0, 0));

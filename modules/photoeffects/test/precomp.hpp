@@ -2,9 +2,13 @@
 #define __OPENCV_PHOTOEFFECTS_PRECOMP_HPP__
 
 #include <opencv2/photoeffects.hpp>
-#include <opencv2/core/core.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/ts.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/core/types_c.h>
+#include <opencv2/imgcodecs/imgcodecs_c.h>
 
-#include <gtest/gtest.h>
+#include <string>
 
 int suppressAssertionMessage(int, const char *, const char *,
                             const char *, int, void *);

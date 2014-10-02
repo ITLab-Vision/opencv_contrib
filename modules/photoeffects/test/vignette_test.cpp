@@ -1,6 +1,9 @@
 #include "precomp.hpp"
 
 using namespace cv;
+using namespace cv::photoeffects;
+
+using namespace std;
 
 TEST(photoeffects_vignette, invalid_arguments)
 {

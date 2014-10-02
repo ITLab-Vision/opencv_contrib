@@ -1,6 +1,9 @@
 #include "precomp.hpp"
 
 using namespace cv;
+using namespace cv::photoeffects;
+
+using namespace std;
 
 TEST(photoeffects_glow, test) {
     Mat image(10, 10, CV_32FC3), dst;
