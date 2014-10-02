@@ -1,11 +1,12 @@
-#include "precomp.hpp"
+#include "test_precomp.hpp"
 #include <opencv2/imgproc.hpp>
-
 
 using namespace cv;
 using namespace cv::photoeffects;
 
 using namespace std;
+
+namespace cvtest {
 
 TEST(photoeffects_sepia, invalid_image_format)
 {
@@ -53,4 +54,6 @@ TEST(photoeffects_sepia, regression)
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));
+}
+
 }
