@@ -26,7 +26,7 @@ The algorithm.
 
       coefficient = 1 - ((dist - radius\_ellipse) / (max\_radius - radius\_ellipse)),
 
-   where :math:`max\_radius` is a distance between the pixel (0, img_src.cols) and the center image.
+    where :math:`max\_radius` is a distance between the pixel (0, img_src.cols) and the center image.
 
 #. Convert image to a BGR format.
 
