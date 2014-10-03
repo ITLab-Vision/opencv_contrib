@@ -35,8 +35,8 @@ TEST(photoeffects_sepia, test)
 
 TEST(photoeffects_sepia, regression)
 {
-    string input = "./testdata/sepia_test.png";
-    string expectedOutput = "./testdata/sepia_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/sepia_test.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/sepia_test_result.png";
 
     Mat image, rightDst;
 

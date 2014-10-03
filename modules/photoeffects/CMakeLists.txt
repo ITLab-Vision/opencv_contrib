@@ -1,1 +1,1 @@
-ocv_define_module(photoeffects opencv_core opencv_imgproc opencv_highgui)
+ocv_define_module(photoeffects opencv_core opencv_imgproc opencv_highgui opencv_ts)

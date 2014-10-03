@@ -33,8 +33,8 @@ TEST(photoeffects_fadeColor, test) {
 
 TEST(photoeffects_fadeColor, regression)
 {
-    string input ="./testdata/fadeColor_test.png";
-    string expectedOutput ="./testdata/fadeColor_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/fadeColor_test.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/fadeColor_result.png";
 
     Mat image, dst, rightDst;
     image = imread(input, CV_LOAD_IMAGE_COLOR);

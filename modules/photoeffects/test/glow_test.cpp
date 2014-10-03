@@ -13,8 +13,8 @@ TEST(photoeffects_glow, test) {
 }
 
 TEST(photoeffects_glow, regression) {
-    string input = "./testdata/glow_test.png";
-    string expectedOutput = "./testdata/glow_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/glow_test.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/glow_test_result.png";
 
     Mat image, rightDst;
 
