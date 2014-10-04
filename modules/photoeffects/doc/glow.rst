@@ -40,8 +40,8 @@ Example.
 
 |src| |dst|
 
-.. |src| image:: glow_before.jpg
+.. |src| image:: pics/glow_before.jpg
    :width: 40%
 
-.. |dst| image:: glow_after.jpg
+.. |dst| image:: pics/glow_after.jpg
    :width: 40%

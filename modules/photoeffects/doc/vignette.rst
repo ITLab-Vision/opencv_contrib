@@ -34,8 +34,8 @@ Example.
 
 |srcImage| |dstImage|
 
-.. |srcImage| image:: vignette_before.jpg
+.. |srcImage| image:: pics/vignette_before.jpg
    :width: 40%
 
-.. |dstImage| image:: vignette_after.jpg
+.. |dstImage| image:: pics/vignette_after.jpg
    :width: 40%
