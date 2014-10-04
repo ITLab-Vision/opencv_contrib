@@ -53,7 +53,6 @@ namespace
 
 int glow(InputArray src, OutputArray dst, int radius, float intensity)
 {
-    TIMER_START(all);
     Mat srcImg = src.getMat();
 
     CV_Assert(srcImg.channels() == COUNT_CHANNEL);
@@ -79,7 +78,6 @@ int glow(InputArray src, OutputArray dst, int radius, float intensity)
 
     dstImg.convertTo(dst, srcImgType);
 
-    TIMER_END(all);
     return 0;
 }
 
