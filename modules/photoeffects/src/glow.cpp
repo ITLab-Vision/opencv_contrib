@@ -1,11 +1,6 @@
 #include "precomp.hpp"
 #include <opencv2/core/utility.hpp>
 
-#include <stdio.h>
-#define TIMER_START(name) int64 t_##name = getTickCount()
-#define TIMER_END(name) printf("TIMER_" #name ":\t%6.2fms\n", \
-            1000.f * ((getTickCount() - t_##name) / getTickFrequency()))
-
 namespace cv { namespace photoeffects {
 
 namespace
@@ -73,17 +68,15 @@ int glow(InputArray src, OutputArray dst, int radius, float intensity)
 
     Mat blurImg;
     Size size(radius, radius);
-    TIMER_START(boxFilt);
+
     boxFilter(srcImg, blurImg, -1, size);
-    TIMER_END(boxFilt);
-    TIMER_START(overl);
+
     Mat overlayImg;
     parallel_for_(Range(0, blurImg.rows), OverlayInvoker(blurImg, srcImg, overlayImg));
-    TIMER_END(overl);
-    TIMER_START(opac);
+
     uchar coeff = static_cast<uchar>(intensity * 255.0);
     Mat dstImg = (coeff * overlayImg + (255 - coeff) * srcImg) / 255;
-    TIMER_END(opac);
+
     dstImg.convertTo(dst, srcImgType);
 
     TIMER_END(all);
