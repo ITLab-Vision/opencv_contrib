@@ -15,11 +15,11 @@ The algorithm.
 
 #. Create 3-channel image, which is interpreted as BGR image.
 
-    #. 1st channel is the matrix, each element equals **blue** = blue_src.
-    #. 2nd channel is the matrix, each element equals **green** = green_src + delta.
-    #. 3rd channel is the matrix, each element equals **red** = red_src + delta.
+#. For every pixel of the **dst** image:
 
-#. Save this matrix as BGR image.
+    #. 1st channel is *blue = blue_src*.
+    #. 2nd channel is *green = green_src + delta*.
+    #. 3rd channel is *red = red_src + delta*.
 
 Example.
 
