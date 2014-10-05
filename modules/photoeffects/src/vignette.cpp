@@ -13,7 +13,7 @@ public:
         centerCol = imgSrc.cols / 2.0f;
         aSquare = rect.height * rect.height / 4.0f;
         bSquare = rect.width * rect.width / 4.0f;
-        radiusMax = centerRow * centerRow / aSquare + centerCol * centerCol / bSquare - 1.0f;
+        distMax = centerRow * centerRow / aSquare + centerCol * centerCol / bSquare - 1.0f;
     }
 
     void operator()(const Range& rows) const
@@ -32,7 +32,7 @@ public:
                 float coefficient = 1.0f;
                 if (dist > 1.0f)
                 {
-                    coefficient = 1.0f - (dist - 1.0f) / radiusMax;
+                    coefficient = 1.0f - (dist - 1.0f) / distMax;
                 }
                 dstRow[3 * j] *= coefficient;
                 dstRow[3 * j + 1] *= coefficient;
@@ -44,7 +44,7 @@ public:
 private:
     const Mat& imgSrc;
     Mat& imgDst;
-    float centerRow, centerCol, aSquare, bSquare, radiusMax;
+    float centerRow, centerCol, aSquare, bSquare, distMax;
 
     VignetteInvoker& operator=(const VignetteInvoker&);
 };
