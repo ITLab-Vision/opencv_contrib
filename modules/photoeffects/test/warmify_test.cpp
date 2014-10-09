@@ -20,7 +20,6 @@ TEST(photoeffects_warmify, test)
     Vec3b intensity_src;
     Vec3b intensity_dst;
 
-    EXPECT_EQ(0, warmify(image, dst, 30));
     for (int i = 0; i < image.rows; i++)
     {
         for (int j = 0; j < image.cols; j++)
@@ -51,8 +50,6 @@ TEST(photoeffects_warmify, regression)
     {
         FAIL() << "Can't read " + expectedOutput + " image";
     }
-
-    EXPECT_EQ(0, warmify(image, dst, 30));
 
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
