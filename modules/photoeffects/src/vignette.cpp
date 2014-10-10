@@ -49,7 +49,7 @@ private:
     VignetteInvoker& operator=(const VignetteInvoker&);
 };
 
-int vignette(InputArray src, OutputArray dst, Size rect)
+void vignette(InputArray src, OutputArray dst, Size rect)
 {
     CV_Assert(src.type() == CV_8UC3 && rect.height != 0 && rect.width != 0);
 
@@ -60,8 +60,6 @@ int vignette(InputArray src, OutputArray dst, Size rect)
     Mat imgDst = dst.getMat();
 
     parallel_for_(Range(0, imgSrc.rows), VignetteInvoker(imgSrc, imgDst, rect));
-
-    return 0;
 }
 
 }}
