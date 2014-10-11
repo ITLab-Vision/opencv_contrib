@@ -28,8 +28,7 @@ CV_EXPORTS_W  int vignette(cv::InputArray src, cv::OutputArray dst, cv::Size rec
 
 CV_EXPORTS_W  int warmify(cv::InputArray src, cv::OutputArray dst, uchar delta = 30);
 
-CV_EXPORTS_W  int matte(cv::InputArray src, cv::OutputArray dst, cv::Point firstPoint, cv::Point secondPoint,
-          float sigmaX, float sigmaY, cv::Size ksize=cv::Size(0, 0));
+CV_EXPORTS_W  int matte(cv::InputArray src, cv::OutputArray dst, float sygma);
 
 }}
 
