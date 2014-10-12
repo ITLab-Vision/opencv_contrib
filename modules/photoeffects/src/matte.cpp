@@ -5,10 +5,10 @@ using namespace std;
 namespace cv { namespace photoeffects {
 
 
-int matte(InputArray src, OutputArray dst, float sygma)
+void matte(InputArray src, OutputArray dst, float sigma=25)
 {
     CV_Assert((src.type() == CV_8UC3) || (src.type() == CV_32FC3));
-    CV_Assert((sygma > 0.0f));
+    CV_Assert((sigma > 0.0f));
 
     Mat imgSrc = src.getMat();
 
@@ -24,8 +24,8 @@ int matte(InputArray src, OutputArray dst, float sygma)
 
     Size s;
 
-    s.height = imgDst.rows/sygma*10;
-    s.width = imgDst.cols/sygma*10;
+    s.height = imgDst.rows/sigma*10;
+    s.width = imgDst.cols/sigma*10;
 
     float aSquare = s.height * s.height / 4.0f;
     float bSquare = s.width * s.width / 4.0f;
@@ -51,6 +51,5 @@ int matte(InputArray src, OutputArray dst, float sygma)
 
         }
     }
-    return 0;
 }
 }}

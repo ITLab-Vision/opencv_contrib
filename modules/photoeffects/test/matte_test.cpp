@@ -7,10 +7,8 @@ using namespace std;
 
 TEST(photoeffects_matte, bad_intensity)
 {
-   Mat image(10, 10, CV_8UC3),dst;
-
-    EXPECT_EQ(0, matte(image,dst, 25));
-    EXPECT_EQ(0, matte(image,dst,1));
+   Mat image(10, 10, CV_32FC3),dst;
+   EXPECT_ERROR(CV_StsAssert, matte(image, dst, -15.0f));
 }
 
 TEST(photoeffects_matte, bad_image)
@@ -36,7 +34,7 @@ TEST(photoeffects_matte, regression)
         FAIL() << "Can't read " + expectedOutput + "image";
     }
     Mat dst;
-    EXPECT_EQ(0, matte(src, dst, 25));
+    matte(src, dst, 25);
     dst.convertTo(dst, CV_8UC3, 255);
     Mat diff = abs(expectedDst - dst);
     Mat mask = diff.reshape(1) > 1;
