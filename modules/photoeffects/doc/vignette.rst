@@ -4,7 +4,7 @@ Vignette
 
 Makes the edges of the photo less bright, creating an oval frame around its central part.
 
-.. ocv:function:: int vignette(cv::InputArray src, cv::OutputArray dst, cv::Size rect)
+.. ocv:function:: void vignette(cv::InputArray src, cv::OutputArray dst, cv::Size rect)
 
    :param src: Source 3-channel image.
    :param dst: Destination image of the same size and the same type as **src**.

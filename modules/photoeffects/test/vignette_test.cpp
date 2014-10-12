@@ -5,24 +5,26 @@ using namespace cv::photoeffects;
 
 using namespace std;
 
-TEST(photoeffects_vignette, invalid_arguments)
+TEST(photoeffects_vignette, incorrect_image)
 {
     Mat image(100, 100, CV_8UC1);
     Mat dst;
     Size rectangle;
-    rectangle.height = 0;
-    rectangle.width = 0;
+    rectangle.height = image.rows / 1.5f;
+    rectangle.width = image.cols / 2.0f;
 
     EXPECT_ERROR(CV_StsAssert, vignette(image, dst, rectangle));
 }
 
-TEST(photoeffects_vignette, test)
+TEST(photoeffects_vignette, incorrect_ellipse_size)
 {
     Mat image(100, 100, CV_8UC3);
     Mat dst;
     Size rectangle;
-    rectangle.height = image.rows / 1.5f;
-    rectangle.width = image.cols / 2.0f;
+    rectangle.height = 0.0f;
+    rectangle.width = 0.0f;
+
+    EXPECT_ERROR(CV_StsAssert, vignette(image, dst, rectangle));
 }
 
 TEST(photoeffects_vignette, regression)
@@ -43,9 +45,11 @@ TEST(photoeffects_vignette, regression)
         FAIL() << "Can't read " + expectedOutput + " image";
     }
 
-    Size rect;
-    rect.height = image.rows / 1.5f;
-    rect.width = image.cols / 2.0f;
+    Size rectangle;
+    rectangle.height = image.rows / 1.5f;
+    rectangle.width = image.cols / 2.0f;
+
+    vignette(image, dst, rectangle);
 
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
