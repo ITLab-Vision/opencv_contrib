@@ -9,7 +9,6 @@ Makes the edges of the photo less bright, creating an oval frame around its cent
    :param src: Source 3-channel image.
    :param dst: Destination image of the same size and the same type as **src**.
    :param rect: Size of rectangle describes an ellipse, whose center is at the center of an image.
-   :return: Error code.
 
 The algorithm.
 
