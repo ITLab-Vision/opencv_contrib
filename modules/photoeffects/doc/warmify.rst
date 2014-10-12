@@ -9,7 +9,6 @@ Increases saturation of red and yellow tones, making photographs more warm, suns
    :param src: Source 3-channel image.
    :param dst: Destination image of the same size and the same type as **src**.
    :param delta: Value by which saturation of warm colors is increased.
-   :return: Error code.
 
 The algorithm.
 
