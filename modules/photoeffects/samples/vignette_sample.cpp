@@ -28,25 +28,17 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    namedWindow(srcImgWinName);
-    namedWindow(dstImgWinName);
+    namedWindow(srcImgWinName, WINDOW_FREERATIO);
+    namedWindow(dstImgWinName, WINDOW_FREERATIO);
 
-    rectSlider.height = image.rows / 1.5f;
-    rectSlider.width = image.cols / 2.0f;
+    rectSlider.height = 0;
+    rectSlider.width = 0;
 
     createTrackbar("Ellipse Width", srcImgWinName, &rectSlider.width, image.cols - 1, on_trackbar);
     createTrackbar("Ellipse Height", srcImgWinName, &rectSlider.height, image.rows - 1, on_trackbar);
 
     imshow(srcImgWinName, image);
-    try
-    {
-        on_trackbar(0, 0);
-    }
-    catch(...)
-    {
-        cout << "Incorrect image type, size of rectangle or image wasn't found." << endl;
-        return 2;
-    }
+    imshow(dstImgWinName, image);
 
     waitKey();
     destroyAllWindows();
