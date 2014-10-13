@@ -31,6 +31,7 @@ int main(int argc, char** argv)
     namedWindow(srcImgWinName, WINDOW_FREERATIO);
     namedWindow(dstImgWinName, WINDOW_FREERATIO);
 
+    warmRatio = 0;
     createTrackbar("Warm Ratio", srcImgWinName, &warmRatio, 255, on_tracker);
 
     imshow(srcImgWinName, image);
