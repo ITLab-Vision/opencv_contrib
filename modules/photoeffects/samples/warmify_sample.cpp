@@ -18,7 +18,7 @@ int warmRatio;
 Mat image, warmifyImg;
 
 int processArguments(int argc, char **argv, Mat &img);
-void on_tracker(int, void*);
+void on_trackbar(int, void*);
 
 int main(int argc, char** argv)
 {
@@ -32,7 +32,7 @@ int main(int argc, char** argv)
     namedWindow(dstImgWinName, WINDOW_FREERATIO);
 
     warmRatio = 0;
-    createTrackbar("Warm Ratio", srcImgWinName, &warmRatio, 255, on_tracker);
+    createTrackbar("Warm Ratio", srcImgWinName, &warmRatio, 255, on_trackbar);
 
     imshow(srcImgWinName, image);
     imshow(dstImgWinName, image);
@@ -51,7 +51,7 @@ int processArguments(int argc, char **argv, Mat &img)
     return 0;
 }
 
-void on_tracker(int, void*)
+void on_trackbar(int, void*)
 {
     warmify(image, warmifyImg, warmRatio);
     imshow(dstImgWinName, warmifyImg);
