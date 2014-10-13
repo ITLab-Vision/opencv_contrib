@@ -34,8 +34,8 @@ int main(int argc, char** argv)
     rectSlider.height = image.rows / 1.5f;
     rectSlider.width = image.cols / 2.0f;
 
-    createTrackbar("a", srcImgWinName, &rectSlider.width, image.cols - 1, on_trackbar);
-    createTrackbar("b", srcImgWinName, &rectSlider.height, image.rows - 1, on_trackbar);
+    createTrackbar("Ellipse Width", srcImgWinName, &rectSlider.width, image.cols - 1, on_trackbar);
+    createTrackbar("Ellipse Height", srcImgWinName, &rectSlider.height, image.rows - 1, on_trackbar);
 
     imshow(srcImgWinName, image);
     try
