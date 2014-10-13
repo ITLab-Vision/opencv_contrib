@@ -12,27 +12,35 @@ const char *helper =
 \t<img> - file name contained the processed image\n\
 ";
 
+const char *srcImgWinName = "Initial image",
+           *dstImgWinName = "Processed image";
+Mat image, vignetteImg;
+Size rectSlider;
+
 int processArguments(int argc, char **argv, Mat &img);
+void on_trackbar(int, void*);
 
 int main(int argc, char** argv)
 {
-    const char *srcImgWinName = "Initial image",
-               *dstImgWinName = "Processed image";
-    Mat image, vignetteImg;
-    Size rectangle;
-
     if (processArguments(argc, argv, image) != 0)
     {
         cout << helper << endl;
         return 1;
     }
 
-    rectangle.height = image.rows / 1.5f;
-    rectangle.width = image.cols / 2.0f;
+    namedWindow(srcImgWinName);
+    namedWindow(dstImgWinName);
 
+    rectSlider.height = image.rows / 1.5f;
+    rectSlider.width = image.cols / 2.0f;
+
+    createTrackbar("a", srcImgWinName, &rectSlider.width, image.cols - 1, on_trackbar);
+    createTrackbar("b", srcImgWinName, &rectSlider.height, image.rows - 1, on_trackbar);
+
+    imshow(srcImgWinName, image);
     try
     {
-        vignette(image, vignetteImg, rectangle);
+        on_trackbar(0, 0);
     }
     catch(...)
     {
@@ -40,10 +48,6 @@ int main(int argc, char** argv)
         return 2;
     }
 
-    namedWindow(srcImgWinName);
-    namedWindow(dstImgWinName);
-    imshow(srcImgWinName, image);
-    imshow(dstImgWinName, vignetteImg);
     waitKey();
     destroyAllWindows();
     return 0;
@@ -58,3 +62,13 @@ int processArguments(int argc, char **argv, Mat &img)
     img = imread(argv[1], CV_LOAD_IMAGE_COLOR);
     return 0;
 }
+
+void on_trackbar(int, void*)
+{
+    rectSlider.width++;
+    rectSlider.height++;
+
+    vignette(image, vignetteImg, rectSlider);
+    imshow(dstImgWinName, vignetteImg);
+}
+
