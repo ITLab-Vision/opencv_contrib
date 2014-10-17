@@ -5,13 +5,6 @@ using namespace cv::photoeffects;
 
 using namespace std;
 
-TEST(photoeffects_edgeBlur, test)
-{
-    Mat src(50, 50, CV_8UC3), dst;
-    src = Mat::zeros(50, 50, CV_8UC3);
-
-    EXPECT_EQ(0, edgeBlur(src, dst, 1, 1));
-}
 
 TEST(photoeffects_edgeBlur, wrong_image)
 {
@@ -46,7 +39,8 @@ TEST(photoeffects_edgeBlur, regression)
     if (rightDst.empty())
         FAIL() << "Can't read " + expectedOutput + " image";
 
-    EXPECT_EQ(0, edgeBlur(src, dst, 130, 160));
+    edgeBlur(src, dst, 130, 160);
+    imwrite("edgeBlur_test_result.png", dst);
 
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;

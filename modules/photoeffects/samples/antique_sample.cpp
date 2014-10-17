@@ -15,8 +15,8 @@ const char* helper = "./antique_sample <src> <texture> <alpha>\n\
 \t<texture> - file name contained the texture image, must be 3-channel RGB-image\n\
 \t<alpha> - float coefficient of intensity texture applying, must be real between 0 to 1\n";
 
-int processArguments(int argc, char** argv, Mat &src,
-    Mat &texture, float &alpha);
+
+int processArguments(int argc, char** argv, Mat &src, Mat &texture, float &alpha);
 
 int main(int argc, char** argv)
 {
@@ -40,8 +40,8 @@ int main(int argc, char** argv)
     return 0;
 }
 
-int processArguments(int argc, char** argv, Mat &src,
-    Mat &texture, float &alpha)
+int processArguments(int argc, char** argv, Mat &src, Mat &texture, float &alpha)
+
 {
     if(argc < 4)
     {
@@ -49,6 +49,6 @@ int processArguments(int argc, char** argv, Mat &src,
     }
     src = imread(argv[1], CV_LOAD_IMAGE_COLOR);
     texture = imread(argv[2], CV_LOAD_IMAGE_COLOR);
-    alpha = atof(argv[3]);
+    alpha = (float)atof(argv[3]);
     return 0;
 }

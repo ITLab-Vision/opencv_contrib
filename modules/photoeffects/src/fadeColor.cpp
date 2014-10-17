@@ -2,13 +2,20 @@
 
 namespace cv { namespace photoeffects {
 
+
+namespace
+{
+
 class FadeColorInvoker: public cv::ParallelLoopBody
 {
 public:
-    FadeColorInvoker(Mat& dst, int A,int B,int C,int mD)
-        : dst_(dst),
-          A_(A),B_(B),C_(C),maxDistance(mD),
-          cols_(dst.cols) {}
+    FadeColorInvoker(Mat& dst, int A, int B, int C, int mD): dst_(dst)
+    {
+        A_ = A; B_ = B; C_ = C;
+        cols_ = dst.cols;
+        maxDistance = mD;
+    }
+
 
     void operator()(const Range& rowsRange) const
     {
@@ -30,7 +37,9 @@ public:
                         channelValue*=(maxDistance-distance);
                         channelValue+=255*distance;
                         channelValue/=maxDistance;
-                        dstRow[dst_.channels()*j+n]=channelValue;
+
+                        dstRow[dst_.channels()*j+n]=(uchar)channelValue;
+
                     }
                 }
             }
@@ -45,6 +54,7 @@ private:
     int maxDistance;
     FadeColorInvoker& operator=(const FadeColorInvoker&);
 };
+
 Point findFarthestPoint(Point vector, Mat& image)
 {
     int a,b;
@@ -69,8 +79,11 @@ Point findFarthestPoint(Point vector, Mat& image)
     return Point(a*image.cols, b*image.rows);
 }
 
-int fadeColor(InputArray src, OutputArray dst,
-              Point startPoint, Point endPoint)
+
+}
+
+void fadeColor(InputArray src, OutputArray dst, Point startPoint, Point endPoint)
+
 {
 
     CV_Assert(!src.empty());
@@ -98,7 +111,8 @@ int fadeColor(InputArray src, OutputArray dst,
     image.copyTo(dstMat);
     parallel_for_(Range(0, image.rows), FadeColorInvoker(dstMat, A,B,C,maxDistance));
     dstMat.copyTo(dst);
-    return 0;
+
+
 }
 
 }}
