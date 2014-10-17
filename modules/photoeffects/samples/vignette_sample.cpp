@@ -32,8 +32,8 @@ int main(int argc, char** argv)
     namedWindow(srcImgWinName, WINDOW_FREERATIO);
     namedWindow(dstImgWinName, WINDOW_FREERATIO);
 
-    rectangle.width = (int)(image.cols / 2.0f);
-    rectangle.height = (int)(image.rows / 1.5f);
+    rectSlider.width = (int)(image.cols / 2.0f);
+    rectSlider.height = (int)(image.rows / 1.5f);
 
     createTrackbar("Ellipse Width", srcImgWinName, &rectSlider.width, image.cols - 1, on_trackbar_width);
     createTrackbar("Ellipse Height", srcImgWinName, &rectSlider.height, image.rows - 1, on_trackbar_height);
