@@ -32,6 +32,7 @@ int main(int argc, char** argv)
     namedWindow(ORIGINAL_IMAGE, WINDOW_AUTOSIZE);
     imshow(ORIGINAL_IMAGE, src);
     matte(src, matteImage, sigma);
+
     namedWindow(MATTE_IMAGE, WINDOW_AUTOSIZE);
     imshow(MATTE_IMAGE, matteImage);
     waitKey(0);

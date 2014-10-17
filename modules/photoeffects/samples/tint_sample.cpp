@@ -23,13 +23,8 @@ int valueHue = 0;
 int valueDen = 50;
 
 void preparePicture();
-<<<<<<< HEAD
-void trackbarTint(int pos, void *);
-void trackbarDen(int pos, void *);
-=======
 void trackbarTint(int, void *);
 void trackbarDen(int, void *);
->>>>>>> upstream/master
 int processArguments(int argc, char** argv, Mat &image);
 
 int main(int argc, char** argv)
@@ -73,11 +68,8 @@ void preparePicture()
     Vec3b hsv;
     for (int j = 0; j < 360; j++)
     {
-<<<<<<< HEAD
-        hsv[0] = (j + 1) / 2;
-=======
         hsv[0] = (uchar)((j + 1) / 2);
->>>>>>> upstream/master
+
         hsv[1] = 255;
         hsv[2] = 255;
         for (int i = 0; i < 20; i++)
@@ -102,11 +94,7 @@ void trackbarTint(int pos, void*)
     imshow(nameWinFilter, filterImg);
 }
 
-<<<<<<< HEAD
-void trackbarDen(int pos, void *)
-=======
 void trackbarDen(int, void *)
->>>>>>> upstream/master
 {
     float den = (float)valueDen / 100.0f;
     tint(img, filterImg, ColorTint, den);
