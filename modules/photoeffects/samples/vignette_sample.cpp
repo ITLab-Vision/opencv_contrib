@@ -38,10 +38,9 @@ int main(int argc, char** argv)
     createTrackbar("Ellipse Width", srcImgWinName, &rectSlider.width, image.cols - 1, on_trackbar_width);
     createTrackbar("Ellipse Height", srcImgWinName, &rectSlider.height, image.rows - 1, on_trackbar_height);
 
-    on_trackbar_width(rectSlider.width, 0);
-    on_trackbar_height(rectSlider.height, 0);
-
     imshow(srcImgWinName, image);
+    vignette(image, vignetteImg, rectSlider);
+    imshow(dstImgWinName, vignetteImg);
 
     waitKey();
     destroyAllWindows();
