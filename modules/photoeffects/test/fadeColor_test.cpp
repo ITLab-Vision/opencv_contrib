@@ -38,7 +38,6 @@ TEST(photoeffects_fadeColor, regression)
         FAIL() << "Can't read " + expectedOutput + " image";
 
     fadeColor(image, dst, Point(100, 100), Point(250, 250));
-
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));

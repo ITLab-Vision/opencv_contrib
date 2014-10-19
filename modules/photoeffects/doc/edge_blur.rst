@@ -3,12 +3,14 @@ Edge Blur
 =======================================
 Blurs the edges of an image, keeping center in focus.
 
+
 .. ocv:function:: void edgeBlur(InputArray src, OutputArray dst, int indentTop, int indentLeft)
 
    :param src: RGB image.
    :param dst: Destination image of the same size and the same type as **src**.
    :param indentTop: The indent from the top and the bottom of the image. It will be blured.
    :param indentLeft: The indent from the left and right side of the image. It will be blured.
+
 
 The algorithm.
 

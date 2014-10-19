@@ -69,6 +69,7 @@ void preparePicture()
     for (int j = 0; j < 360; j++)
     {
         hsv[0] = (uchar)((j + 1) / 2);
+
         hsv[1] = 255;
         hsv[2] = 255;
         for (int i = 0; i < 20; i++)

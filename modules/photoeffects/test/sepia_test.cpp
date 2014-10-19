@@ -21,7 +21,6 @@ TEST(photoeffects_sepia, test)
 {
     Mat src(10, 10, CV_8UC1, Scalar(0)), dst, hsvDst;
     vector<Mat> channels(3);
-
     sepia(src, dst);
     cvtColor(dst, hsvDst, COLOR_BGR2HSV);
     split(hsvDst, channels);
@@ -50,7 +49,6 @@ TEST(photoeffects_sepia, regression)
 
     Mat dst;
     sepia(image, dst);
-
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));

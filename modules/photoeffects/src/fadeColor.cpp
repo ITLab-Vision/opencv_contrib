@@ -2,6 +2,7 @@
 
 namespace cv { namespace photoeffects {
 
+
 namespace
 {
 
@@ -14,6 +15,7 @@ public:
         cols_ = dst.cols;
         maxDistance = mD;
     }
+
 
     void operator()(const Range& rowsRange) const
     {
@@ -35,7 +37,9 @@ public:
                         channelValue*=(maxDistance-distance);
                         channelValue+=255*distance;
                         channelValue/=maxDistance;
+
                         dstRow[dst_.channels()*j+n]=(uchar)channelValue;
+
                     }
                 }
             }
@@ -75,9 +79,11 @@ Point findFarthestPoint(Point vector, Mat& image)
     return Point(a*image.cols, b*image.rows);
 }
 
+
 }
 
 void fadeColor(InputArray src, OutputArray dst, Point startPoint, Point endPoint)
+
 {
 
     CV_Assert(!src.empty());
@@ -105,6 +111,8 @@ void fadeColor(InputArray src, OutputArray dst, Point startPoint, Point endPoint
     image.copyTo(dstMat);
     parallel_for_(Range(0, image.rows), FadeColorInvoker(dstMat, A,B,C,maxDistance));
     dstMat.copyTo(dst);
+
+
 }
 
 }}

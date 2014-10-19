@@ -3,7 +3,9 @@ Fade Color
 =======================================
 Applies color fade effect to image.
 
+
 .. cpp:function:: void fadeColor(InputArray src, OutputArray dst, Point startPoint, Point endPoint)
+
 
    :param src: Grayscale or RGB image.
    :param dst: Destination image of the same size and the same type as **src**.

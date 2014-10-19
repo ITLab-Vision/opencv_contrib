@@ -24,6 +24,7 @@ The algorithm.
 
   where :math:`radiusMax` is a maximum distance from border of the ellipse to the farthest pixel (a corner of the image).
 
+
 Example.
 
 |srcImage| |dstImage|

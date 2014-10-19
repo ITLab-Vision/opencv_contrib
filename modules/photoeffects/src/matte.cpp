@@ -1,6 +1,7 @@
 #include "precomp.hpp"
 
 
+
 using namespace std;
 namespace cv { namespace photoeffects {
 
@@ -53,3 +54,4 @@ void matte(InputArray src, OutputArray dst, float sigma)
 }
 
 }}
+

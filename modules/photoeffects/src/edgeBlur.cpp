@@ -2,6 +2,7 @@
 
 namespace cv { namespace photoeffects {
 
+
 class edgeBlurInvoker :public ParallelLoopBody
 {
 public:
@@ -65,11 +66,13 @@ void edgeBlur(InputArray src, OutputArray dst, int indentTop, int indentLeft)
     CV_Assert(!src.empty());
     CV_Assert(src.type() == CV_8UC3);
 
+
     dst.create(src.size(), src.type());
     Mat image = src.getMat(), outputImage = dst.getMat();
 
     CV_Assert(indentTop >= 0 && indentTop <= (image.rows / 2 - 10));
     CV_Assert(indentLeft >= 0 && indentLeft <= (image.cols / 2 - 10));
+
 
     Mat boxFilt;
 
@@ -82,6 +85,7 @@ void edgeBlur(InputArray src, OutputArray dst, int indentTop, int indentLeft)
                                   outputImage,
                                   indentTop,
                                   indentLeft));
+
 }
 
 }}

@@ -38,7 +38,9 @@ namespace
                     {
                         intensResult = cv::min(-intensResult - 255 + 2 * (foreRow[j] + backRow[j]), 255);
                     }
+
                     resRow[j] = (uchar)intensResult;
+
                 }
             }
         }
@@ -48,7 +50,9 @@ namespace
         Mat &resImg;
         int width;
 
+
         OverlayInvoker& operator=(const OverlayInvoker&);
+
     };
 }
 

@@ -3,7 +3,9 @@ Film Grain
 =======================================
 Applies film grain effect to the initial image.
 
+
 .. cpp:function:: void filmGrain(InputArray src, OutputArray dst, int grainValue, RNG& rng)
+
 
    :param src: Grayscale or RGB image.
    :param dst: Destination image of the same size and the same type as **src**.

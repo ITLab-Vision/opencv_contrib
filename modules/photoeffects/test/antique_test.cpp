@@ -7,17 +7,21 @@ using namespace std;
 
 TEST(photoeffects_antique, test)
 {
+
     Mat srcUCThreeChannels(10, 10, CV_8UC3); 
      srcUCThreeChannels = Mat::zeros(10, 10, CV_8UC3);
     Mat textureUCThreeChannels(10, 10, CV_8UC3);
      textureUCThreeChannels = Mat::zeros(10, 10, CV_8UC3);
     Mat dst;
     EXPECT_ERROR(CV_StsAssert, antique(srcUCThreeChannels, dst, textureUCThreeChannels, -0.5f));
+
     Mat srcFCThreeChannels(10, 10, CV_32FC3);
     srcFCThreeChannels = Mat::zeros(10, 10, CV_32FC3);
     Mat textureFCThreeChannels(10, 10, CV_32FC3);
     textureFCThreeChannels = Mat::zeros(10, 10, CV_32FC3);
+
     EXPECT_ERROR(CV_StsAssert, antique(srcFCThreeChannels, dst, textureFCThreeChannels, -0.5f));
+
 }
 
 TEST(photoeffects_antique, invalid_image_format)
@@ -53,6 +57,7 @@ TEST(photoeffects_antique, regression)
         FAIL() << "Can't read" + expectedOut + " image";
     }
     Mat dst;
+
     antique(src, dst, txtre, 0.9f);
     Mat diff = abs(expectedDst - dst);
     Mat mask = diff.reshape(1) > 1;

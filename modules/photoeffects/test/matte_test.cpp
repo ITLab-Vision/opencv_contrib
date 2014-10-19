@@ -5,6 +5,7 @@ using namespace cv::photoeffects;
 
 using namespace std;
 
+
 TEST(photoeffects_matte, bad_intensity)
 {
    Mat image(10, 10, CV_32FC3),dst;
@@ -17,6 +18,7 @@ TEST(photoeffects_matte, bad_image)
     Mat dst;
 
     EXPECT_ERROR(CV_StsAssert, matte(src, dst,25));
+
 }
 
 TEST(photoeffects_matte, regression)
@@ -34,6 +36,7 @@ TEST(photoeffects_matte, regression)
         FAIL() << "Can't read " + expectedOutput + "image";
     }
     Mat dst;
+
     matte(src, dst, 25);
     Mat diff = abs(expectedDst - dst);
     Mat mask = diff.reshape(1) > 1;
