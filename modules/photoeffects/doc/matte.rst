@@ -3,7 +3,7 @@ Matte
 =======================================
 Increases the brightness of peripheral pixels.
 
-.. cpp:function:: void matte(cv::InputArray src, cv::OutputArray dst, float sigma)
+..  ocv::function:: void matte(cv::InputArray src, cv::OutputArray dst, float sigma)
 
    :param src: RGB image.
    :param dst: Destination image of the same size and the same type as **src**.
