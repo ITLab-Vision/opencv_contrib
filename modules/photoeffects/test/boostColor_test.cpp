@@ -7,8 +7,8 @@ using namespace std;
 
 TEST(photoeffects_boostColor, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/boostColor_test.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/boostColor_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_boostColor.png";
 
     Mat image = imread(input, CV_LOAD_IMAGE_COLOR);
     Mat rightDst = imread(expectedOutput, CV_LOAD_IMAGE_COLOR);
@@ -20,6 +20,7 @@ TEST(photoeffects_boostColor, regression)
 
     Mat dst;
     boostColor(image, dst, 0.5f);
+
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));

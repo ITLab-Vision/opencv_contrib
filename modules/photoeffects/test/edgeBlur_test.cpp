@@ -25,8 +25,8 @@ TEST(photoeffects_edgeBlur, wrong_indent)
 
 TEST(photoeffects_edgeBlur, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/edgeBlur_test.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/edgeBlur_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_edgeBlur.png";
 
     Mat src, dst, rightDst;
 
@@ -38,8 +38,8 @@ TEST(photoeffects_edgeBlur, regression)
     if (rightDst.empty())
         FAIL() << "Can't read " + expectedOutput + " image";
 
-    edgeBlur(src, dst, 130, 160);
-    imwrite("edgeBlur_test_result.png", dst);
+    edgeBlur(src, dst, 50, 80);
+
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));

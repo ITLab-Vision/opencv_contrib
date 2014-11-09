@@ -21,8 +21,8 @@ TEST(photoeffects_matte, bad_image)
 
 TEST(photoeffects_matte, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/matte_test.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/matte_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_matte.png";
     Mat src = imread(input, CV_LOAD_IMAGE_COLOR);
     Mat expectedDst = imread(expectedOutput, CV_LOAD_IMAGE_COLOR);
     if(src.empty())
@@ -35,6 +35,7 @@ TEST(photoeffects_matte, regression)
     }
     Mat dst;
     matte(src, dst, 25);
+
     Mat diff = abs(expectedDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));

@@ -15,8 +15,8 @@ TEST(photoeffects_filmGrain, invalid_image_format)
 
 TEST(photoeffects_filmGrain, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/filmGrain_test.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/filmGrain_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_filmGrain.png";
 
     Mat image = imread(input, CV_LOAD_IMAGE_COLOR);
     Mat rightDst = imread(expectedOutput, CV_LOAD_IMAGE_COLOR);
@@ -27,7 +27,6 @@ TEST(photoeffects_filmGrain, regression)
         FAIL() << "Can't read " + input + " image";
 
     Mat dst;
-
     filmGrain(image, dst, 25);
 
     Mat diff = abs(rightDst - dst);
