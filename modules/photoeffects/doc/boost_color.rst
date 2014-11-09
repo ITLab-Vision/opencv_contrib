@@ -21,8 +21,8 @@ Example.
 
 |src| |dst|
 
-.. |src| image:: pics/boost_color_before.jpg
+.. |src| image:: pics/lena_orig.png
    :width: 40%
 
-.. |dst| image:: pics/boost_color_after.jpg
+.. |dst| image:: pics/lena_boostColor.png
    :width: 40%

@@ -28,8 +28,8 @@ Example.
 
 |srcImage| |dstImage|
 
-.. |srcImage| image:: pics/vignette_before.jpg
+.. |srcImage| image:: pics/lena_orig.png
    :width: 40%
 
-.. |dstImage| image:: pics/vignette_after.jpg
+.. |dstImage| image:: pics/lena_vignette.png
    :width: 40%

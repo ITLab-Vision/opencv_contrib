@@ -25,8 +25,8 @@ Example:
 
 |srcImage| |dstImage|
 
-.. |srcImage| image:: pics/tint_before.png
+.. |srcImage| image:: pics/lena_orig.png
    :width: 40%
 
-.. |dstImage| image:: pics/tint_after.png
+.. |dstImage| image:: pics/lena_tint.png
    :width: 40%

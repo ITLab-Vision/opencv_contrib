@@ -19,8 +19,8 @@ Example.
 
 |srcImage| |dstImage|
 
-.. |srcImage| image:: pics/film_grain_before.png
+.. |srcImage| image:: pics/lena_orig.png
    :width: 40%
 
-.. |dstImage| image:: pics/film_grain_after.png
+.. |dstImage| image:: pics/lena_filmGrain.png
    :width: 40%

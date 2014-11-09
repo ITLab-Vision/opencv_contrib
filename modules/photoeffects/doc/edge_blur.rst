@@ -41,12 +41,10 @@ The algorithm.
 
 Example.
 
-    **indentTop** = 90, **indentLeft** = 90.
-
 |src| |dst|
 
-.. |src| image:: pics/edge_blur_before.png
+.. |src| image:: pics/lena_orig.png
    :width: 40%
 
-.. |dst| image:: pics/edge_blur_after.png
+.. |dst| image:: pics/lena_edgeBlur.png
    :width: 40%

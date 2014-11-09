@@ -22,8 +22,8 @@ Example.
 
 |srcImage| |dstImage|
 
-.. |srcImage| image:: pics/sepia_before.jpg
+.. |srcImage| image:: pics/lena_orig.png
    :width: 40%
 
-.. |dstImage| image:: pics/sepia_after.jpg
+.. |dstImage| image:: pics/lena_sepia.png
    :width: 40%

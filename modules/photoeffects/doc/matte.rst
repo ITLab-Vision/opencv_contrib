@@ -17,19 +17,22 @@ The algorithm.
 #. New value stores to the dst image.
 #. The  coefficient is calculated by the following formula:
 
-    coef = 1 - ( ( dist - 1 ) / radiusMax );
-    coef = -2 * coef * coef * coef * coef * coef + 4 * coef * coef * coef - coef,
+    .. math::
+
+      coef = 1 - ( ( dist - 1 ) / radiusMax )
+
+      coef = -2 * coef * coef * coef * coef * coef + 4 * coef * coef * coef - coef,
     
-    where  radiusMax is a maximum distance from border of the ellipse to the farthest pixel (a corner of the image).
+  where  :math:`radiusMax` is a maximum distance from border of the ellipse to the farthest pixel (a corner of the image).
 
 Example.
 
-    sigma = 25.
+    :math:`sigma = 25`
 
 |srcImage| |dstImage|
 
-.. |srcImage| image:: pics/matte_before.jpg
+.. |srcImage| image:: pics/lena_orig.png
    :width: 40%
 
-.. |dstImage| image:: pics/matte_after.jpg
+.. |dstImage| image:: pics/lena_matte.png
    :width: 40%

@@ -39,8 +39,8 @@ Example.
 
 |src| |dst|
 
-.. |src| image:: pics/glow_before.jpg
+.. |src| image:: pics/lena_orig.png
    :width: 40%
 
-.. |dst| image:: pics/glow_after.jpg
+.. |dst| image:: pics/lena_glow.png
    :width: 40%
