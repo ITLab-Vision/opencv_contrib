@@ -35,8 +35,8 @@ TEST(photoeffects_sepia, test)
 
 TEST(photoeffects_sepia, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_sepia.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_sepia.png";
 
     Mat image, rightDst;
 

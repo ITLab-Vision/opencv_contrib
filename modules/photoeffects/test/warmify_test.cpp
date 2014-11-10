@@ -35,8 +35,8 @@ TEST(photoeffects_warmify, test)
 
 TEST(photoeffects_warmify, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_warmify.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_warmify.png";
 
     Mat image, dst, rightDst;
     image = imread(input, CV_LOAD_IMAGE_COLOR);

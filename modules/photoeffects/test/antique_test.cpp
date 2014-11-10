@@ -34,9 +34,9 @@ TEST(photoeffects_antique, invalid_image_format)
 
 TEST(photoeffects_antique, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string texture = cvtest::TS::ptr()->get_data_path() + "photoeffects/antique_texture_test.png";
-    string expectedOut = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_antique.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string texture = "./doc/fake-root/modules/photoeffects/doc/pics/antique_texture_test.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_antique.png";
     Mat src = imread(input, CV_LOAD_IMAGE_COLOR);
     if (src.empty())
     {
@@ -47,10 +47,10 @@ TEST(photoeffects_antique, regression)
     {
         FAIL() << "Can't read " + texture + " image";
     }
-    Mat expectedDst = imread(expectedOut, CV_LOAD_IMAGE_COLOR);
+    Mat expectedDst = imread(expectedOutput, CV_LOAD_IMAGE_COLOR);
     if (expectedDst.empty())
     {
-        FAIL() << "Can't read" + expectedOut + " image";
+        FAIL() << "Can't read" + expectedOutput + " image";
     }
     Mat dst;
     antique(src, dst, txtre, 0.9f);

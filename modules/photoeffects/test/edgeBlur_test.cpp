@@ -25,8 +25,8 @@ TEST(photoeffects_edgeBlur, wrong_indent)
 
 TEST(photoeffects_edgeBlur, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_edgeBlur.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_edgeBlur.png";
 
     Mat src, dst, rightDst;
 

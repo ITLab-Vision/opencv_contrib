@@ -25,8 +25,8 @@ TEST(photoeffects_fadeColor, invalid_argument)
 
 TEST(photoeffects_fadeColor, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_fadeColor.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_fadeColor.png";
 
     Mat image, dst, rightDst;
     image = imread(input, CV_LOAD_IMAGE_COLOR);

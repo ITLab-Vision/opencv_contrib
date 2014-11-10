@@ -7,8 +7,8 @@ using namespace std;
 
 TEST(photoeffects_boostColor, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_boostColor.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_boostColor.png";
 
     Mat image = imread(input, CV_LOAD_IMAGE_COLOR);
     Mat rightDst = imread(expectedOutput, CV_LOAD_IMAGE_COLOR);

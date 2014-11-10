@@ -6,8 +6,8 @@ using namespace cv::photoeffects;
 using namespace std;
 
 TEST(photoeffects_glow, regression) {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_glow.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_glow.png";
 
     Mat image, rightDst;
 

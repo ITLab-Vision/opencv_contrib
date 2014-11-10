@@ -15,8 +15,8 @@ TEST(photoeffects_filmGrain, invalid_image_format)
 
 TEST(photoeffects_filmGrain, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_filmGrain.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_filmGrain.png";
 
     Mat image = imread(input, CV_LOAD_IMAGE_COLOR);
     Mat rightDst = imread(expectedOutput, CV_LOAD_IMAGE_COLOR);

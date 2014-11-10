@@ -23,8 +23,8 @@ TEST(photoeffects_tint, wrong_density)
 
 TEST(photoeffects_tint, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_tint.png";
+    string input = "./doc/fake-root/modules/photoeffects/doc/pics/lena_orig.png";
+    string expectedOutput = "./doc/fake-root/modules/photoeffects/doc/pics/lena_tint.png";
 
     Mat src, dst, rightDst;
 
