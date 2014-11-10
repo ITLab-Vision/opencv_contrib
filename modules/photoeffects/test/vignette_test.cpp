@@ -29,8 +29,8 @@ TEST(photoeffects_vignette, incorrect_ellipse_size)
 
 TEST(photoeffects_vignette, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/vignette_test.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/vignette_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_vignette.png";
 
     Mat image, dst, rightDst;
     image = imread(input, CV_LOAD_IMAGE_COLOR);
@@ -46,11 +46,10 @@ TEST(photoeffects_vignette, regression)
     }
 
     Size rectangle;
-    rectangle.height = (int)(image.rows / 1.5f);
+    rectangle.height = (int)(image.rows / 2.0f);
     rectangle.width = (int)(image.cols / 2.0f);
 
     vignette(image, dst, rectangle);
-
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));

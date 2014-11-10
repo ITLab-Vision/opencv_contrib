@@ -6,8 +6,8 @@ using namespace cv::photoeffects;
 using namespace std;
 
 TEST(photoeffects_glow, regression) {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/glow_test.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/glow_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_glow.png";
 
     Mat image, rightDst;
 
@@ -21,6 +21,7 @@ TEST(photoeffects_glow, regression) {
 
     Mat dst;
     glow(image, dst, 33, 0.9f);
+
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));

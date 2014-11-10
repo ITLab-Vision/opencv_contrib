@@ -23,8 +23,8 @@ TEST(photoeffects_tint, wrong_density)
 
 TEST(photoeffects_tint, regression)
 {
-    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/tint_test.png";
-    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/tint_test_result.png";
+    string input = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_orig.png";
+    string expectedOutput = cvtest::TS::ptr()->get_data_path() + "photoeffects/lena_tint.png";
 
     Mat src, dst, rightDst;
 
@@ -36,9 +36,9 @@ TEST(photoeffects_tint, regression)
     if (rightDst.empty())
         FAIL() << "Can't read " + expectedOutput + " image";
 
-    Scalar color(128, 255, 0);
-
+    Scalar color(255, 255, 0);
     tint(src, dst, color, 0.1f);
+
     Mat diff = abs(rightDst - dst);
     Mat mask = diff.reshape(1) > 1;
     EXPECT_EQ(0, countNonZero(mask));
